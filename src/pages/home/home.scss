@@ -1,3 +1,5 @@
 page-home {
-
+    .col-editable:not(.ag-cell-focus){
+        border: 1px solid lightgray!important;
+    }
 }

@@ -1,14 +1,38 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Ag-grid Demo
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Filter</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="filter"
+        (keyup)="onFilterTextChange($event)"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button (tap)="saveState()">Save state</button>
+      <button ion-button (tap)="loadState()">Load state</button>
+    </ion-item>
+  </ion-list>
+
+  <ag-grid-angular
+    style="width: 100%; height: 70%;"
+    class="ag-theme-balham"
+    [enableSorting]="true"
+    [enableFilter]="true"
+    [pagination]="true"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [quickFilterText]="filter"
+    [gridOptions]="gridOptions"
+  >
+  </ag-grid-angular>
 </ion-content>
